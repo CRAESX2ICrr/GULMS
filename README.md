@@ -1,8 +1,10 @@
-TechStack
+## Tech Stack
 
-FRONTEND    HTML, SCSS, JavaScript
-BACKEND     PHP
-DATABASE    MySQL
+FRONTEND    HTML, SCSS, JavaScript  
+BACKEND     PHP  
+DATABASE    MySQL  
 
-TEMPLATES   Mustache
-THEME	    Bootstrap (Boost)
+<br>
+
+TEMPLATES   Mustache  
+THEME       Bootstrap (Boost)
