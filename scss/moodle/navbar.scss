@@ -1,0 +1,400 @@
+@mixin hover-navbar {
+    border-color: transparent;
+    background-color: transparent;
+}
+.navbar.fixed-top {
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: none;
+    border-bottom: $gray-300 1px solid;
+    align-items: stretch;
+    height: $navbar-height + 1px;
+
+    .navbar-brand {
+        .logo {
+            max-height: calc(#{$navbar-height} - (#{$primary-nav-padding-y} * 2));
+        }
+    }
+    .nav-link {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+    .divider {
+        width: 1px;
+        background-color: $gray-300;
+    }
+
+    #usernavigation .nav-link {
+        padding: 0 $primary-nav-padding-x;
+    }
+    .login {
+        display: flex;
+        align-items: center;
+    }
+    .usermenu {
+        display: flex;
+        .action-menu {
+            display: flex;
+            align-items: center;
+        }
+        .dropdown {
+            display: flex;
+            align-items: center;
+            .dropdown-toggle {
+                padding-top: 0;
+                padding-bottom: 0;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                height: 100%;
+            }
+        }
+        .dropdown-menu {
+            min-width: 235px;
+            .carousel-navigation-link {
+                > * {
+                    pointer-events: none;
+                }
+            }
+            .dropdown-item {
+                padding: .25rem 1.75rem .25rem .75rem;
+                &.carousel-navigation-link::after {
+                    font: var(--fa-font-solid);
+                    content: fa-content($fa-var-caret-right);
+                    font-size: 1rem;
+                    padding-top: .2rem;
+                    right: .75rem;
+                    position: absolute;
+                }
+            }
+            .submenu {
+                .header {
+                    padding: .25rem .75rem;
+                    font-size: .975rem;
+                    .icon {
+                        font-size: 20px;
+                        height: 20px;
+                        width: 20px;
+                        margin: 0;
+                    }
+                }
+                .items {
+                    .dropdown-item {
+                        &[aria-current="true"]::before {
+                            font: var(--fa-font-solid);
+                            content: fa-content($fa-var-check);
+                            font-size: 0.75rem;
+                            padding-left: .25rem;
+                        }
+                    }
+                }
+            }
+        }
+        .login {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .usermenu,
+    .langmenu {
+        .dropdown {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            .dropdown-toggle {
+                padding-top: 0;
+                padding-bottom: 0;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                height: 100%;
+            }
+        }
+    }
+    .langmenu {
+        .dropdown-menu {
+            .dropdown-item {
+                &[aria-current="true"]::before {
+                    content: "\f00c";
+                    font-size: 0.75rem;
+                    padding-left: .25rem;
+                }
+            }
+        }
+        @include media-breakpoint-down(md) {
+            .langbutton {
+                display: none;
+            }
+        }
+    }
+    .moodle-actionmenu .menubar,
+    .action-menu-trigger .dropdown {
+        height: 100%;
+        display: flex;
+    }
+}
+.dir-rtl .navbar.fixed-top {
+    .usermenu {
+        .dropdown-menu {
+            .dropdown-item {
+                &.carousel-navigation-link::after {
+                    font: var(--fa-font-solid);
+                    content: fa-content($fa-var-caret-left);
+                }
+            }
+        }
+    }
+}
+#page {
+    margin-top: $navbar-height;
+}
+.pagelayout-embedded #page {
+    margin-top: 0;
+}
+.navbar-bootswatch {
+    .navbar-brand {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        .sitename {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+// Make navbar height available for non-sass use.
+:root {
+    --navbar-height: #{$navbar-height};
+}
+
+
+
+/* =====================================   GUNI ADMIN NAVBAR - ENHANCED VERSION ===================================== */
+/* Main navbar container */
+.navbar.fixed-top.bg-body {
+    background: linear-gradient(90deg, #0d2c54, #1e4fa3) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    height: 75px;
+    padding: 0 2rem !important;
+}
+
+
+/* Brand (CLMS) */
+.navbar.fixed-top.bg-body .navbar-brand {
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1.5rem; /* Bigger brand */
+    letter-spacing: 0.6px;
+}
+
+/* Main nav links */
+.navbar.fixed-top.bg-body .primary-navigation .nav-link{
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+    font-size: 1.05rem; /* Bigger text */
+    padding: 0 1.2rem;
+    border-radius: 6px;
+}
+
+/* Hover — WHITE BG + BLACK TEXT */
+.navbar.fixed-top.bg-body .primary-navigation .nav-link:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+
+
+/* OVERRIDE Moodle active tab completely */
+.navbar.fixed-top.bg-body 
+.navbar-nav 
+.nav-link.active,
+.navbar.fixed-top.bg-body 
+.navbar-nav 
+.nav-item.show 
+.nav-link {
+    background-color: rgba(255,255,255,0.15) !important;
+    color: #ffffff !important;
+}
+
+
+
+/* Notification + message icons */
+.navbar.fixed-top.bg-body #usernavigation .icon {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.3rem; 
+}
+
+
+.navbar.fixed-top.bg-body #usernavigation .icon:hover {
+    color: #ffffff;
+}
+
+/* Notification badge */
+.navbar.fixed-top.bg-body .count-container {
+    background: #ff3b3b;
+    color: #ffffff;
+    border-radius: 50px;
+    padding: 2px 6px;
+}
+
+/* User dropdown */
+.navbar.fixed-top.bg-body .usermenu .dropdown-toggle {
+    background: transparent;
+    color: #ffffff;
+}
+
+/* Make avatar slightly bigger */
+.usermenu .userinitials {
+    width: 40px;
+    height: 40px;
+}
+
+/* Divider */
+.navbar.fixed-top.bg-body .divider {
+    background-color: rgba(255,255,255,0.25);
+}
+
+/* Edit mode label */
+.navbar.fixed-top.bg-body .form-check-label {
+    color: rgba(255,255,255,0.95) !important;
+    font-weight: 600;
+}
+
+/* Switch */
+.navbar .form-check-input {
+    background-color: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.4);
+}
+
+.navbar .form-check-input:checked {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+
+/* Active tab should NOT turn white on hover */
+.navbar.fixed-top.bg-body 
+.primary-navigation 
+.nav-link.active:hover {
+    background: rgba(255,255,255,0.15) !important;
+    color: #ffffff !important;
+}
+
+/* Logged out "Log in" link */
+.navbar.fixed-top.bg-body .login a {
+    color: #ffffff;
+}
+
+.navbar.fixed-top.bg-body .login a:hover,
+.navbar.fixed-top.bg-body .login a:focus {
+    color: #ffffff;
+}
+
+
+/* =====================================   GUNI USER DROPDOWN - MODERN PANEL ===================================== */
+#user-action-menu.dropdown-menu {
+    background: #ffffff;
+    border: none;
+    border-radius: 14px;
+    padding: 0.75rem 0;
+    min-width: 240px;
+}
+
+/* Dropdown items */
+#user-action-menu .dropdown-item {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.4rem;
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    transition: all 0.15s ease;
+}
+
+/* Hover effect */
+#user-action-menu .dropdown-item:hover {
+    background: #f3f6fb;
+    color: #0d2c54;
+    padding-left: 1.6rem;
+}
+
+/* Divider */
+#user-action-menu .dropdown-divider {
+    margin: 0.5rem 0;
+    border-color: rgba(0,0,0,0.08);
+}
+
+/* Logout highlight */
+#user-action-menu .dropdown-item:last-child {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+#user-action-menu .dropdown-item:last-child:hover {
+    background: #fdeaea;
+    color: #a93226;
+}
+
+
+/* =====================================   GUNI RED MODERN NOTIFICATION PANEL ===================================== */
+
+/* Popover container */
+.popover-region-container {
+    width: 400px;
+    border-radius: 16px;
+    border: none;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* Header */
+.popover-region-header-container {
+    background: linear-gradient(90deg, #0d2c54, #1e4fa3);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header title */
+.popover-region-header-text {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Header action buttons */
+/*.popover-region-container 
+.popover-region-header-actions 
+.btn.btn-link i.icon {
+    color: rgba(193, 32, 32, 0.9) !important;
+}
+*/
+
+/* Icons inside header */
+.popover-region-header-actions .btn i {
+    font-size: 1.1rem;
+}
+
+
+
+/* ===== GLOBAL NAVBAR FOCUS FIX ===== */
+
+.navbar.fixed-top.bg-body a:focus,
+.navbar.fixed-top.bg-body a:active,
+.navbar.fixed-top.bg-body .nav-link:focus,
+.navbar.fixed-top.bg-body .nav-link:active,
+.navbar.fixed-top.bg-body button:focus,
+.navbar.fixed-top.bg-body button:active,
+.navbar.fixed-top.bg-body .login,
+.navbar.fixed-top.bg-body .login * {
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #ffffff !important;
+}

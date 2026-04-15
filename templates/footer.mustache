@@ -1,0 +1,49 @@
+<footer id="page-footer" class="guni-footer">
+
+    <div class="footer-grid">
+
+        <div class="footer-col footer-brand">
+            <h5>Goa University</h5>
+            <p>Learning Management System</p>
+            <p class="footer-tagline">Empowering Digital Education</p>
+        </div>
+
+        <div class="footer-col">
+            <h6>University</h6>
+            <a href="https://www.unigoa.ac.in" target="_blank">Official Website</a>
+            <a href="https://www.unigoa.ac.in/facilities/directorate-of-digital-learning-and-initiatives-ddli.html" target="_blank">About</a>
+            <a href="https://www.unigoa.ac.in/goa-university-contact-us.php" target="_blank">Contact</a>
+        </div>
+
+        <div class="footer-col">
+            <h6>Founded by</h6>
+            <a href="https://github.com/CRAESX2ICrr" target="_blank">Clayton Pereira</a>
+            <a href="https://github.com/romanrajesh12/" target="_blank">Rajesh Kotha</a>
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div>
+            {{{ output.login_info }}}
+        </div>
+
+        <div>
+            {{{ output.standard_footer_html }}}
+        </div>
+
+        <div>
+            Powered by Moodle
+            {{#output.moodle_release}}
+                • Version {{{ output.moodle_release }}}
+            {{/output.moodle_release}}
+        </div>
+
+    </div>
+
+</footer>
+
+{{{ output.debug_footer_html }}}
+{{{ output.standard_end_of_body_html }}}

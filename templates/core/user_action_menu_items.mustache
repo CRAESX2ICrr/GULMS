@@ -1,0 +1,58 @@
+{{#items}}
+
+    {{#link}}
+        <a href="{{{url}}}" 
+           class="dropdown-item guni-user-item d-flex align-items-center"
+           role="menuitem" tabindex="-1">
+
+            <span class="guni-user-icon me-3">
+                {{#pixicon}}
+                    {{#pix}}{{pixicon}}{{/pix}}
+                {{/pixicon}}
+                {{^pixicon}}
+                    {{#imgsrc}}
+                        <img aria-hidden="true" src="{{imgsrc}}" alt="{{title}}"/>
+                    {{/imgsrc}}
+                {{/pixicon}}
+            </span>
+
+            <span class="guni-user-text">
+                {{title}}
+            </span>
+
+        </a>
+    {{/link}}
+
+    {{#submenulink}}
+        <a href="#"
+           class="carousel-navigation-link dropdown-item guni-user-item d-flex align-items-center"
+           role="menuitem" tabindex="-1"
+           data-carousel-target-id="carousel-item-{{submenuid}}">
+
+            <span class="guni-user-icon me-3">
+                {{#pixicon}}
+                    {{#pix}}{{pixicon}}{{/pix}}
+                {{/pixicon}}
+                {{^pixicon}}
+                    {{#imgsrc}}
+                        <img aria-hidden="true" src="{{imgsrc}}" alt="{{title}}"/>
+                    {{/imgsrc}}
+                {{/pixicon}}
+            </span>
+
+            <span class="guni-user-text">
+                {{title}}
+            </span>
+
+            <span class="ms-auto guni-arrow">
+                <i class="fa fa-chevron-right"></i>
+            </span>
+
+        </a>
+    {{/submenulink}}
+
+    {{#divider}}
+        <div class="dropdown-divider guni-divider"></div>
+    {{/divider}}
+
+{{/items}}

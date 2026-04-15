@@ -1,0 +1,127 @@
+/* ==========================================
+   GUNI – DASHBOARD HEADER (BLUE VERSION)
+   ========================================== */
+
+#page-header.header-maxwidth {
+    background: linear-gradient(135deg, #3b5f95, #4f7db5);
+    border-radius: 12px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+#page-header.header-maxwidth .breadcrumb a {
+    color: #ffffff !important;
+}
+
+#page-header.header-maxwidth .breadcrumb a:hover,
+#page-header.header-maxwidth .breadcrumb a:focus,
+#page-header.header-maxwidth .breadcrumb a:active {
+    color: #e6f0ff !important;
+    text-decoration: underline;
+}
+
+/* Layout */
+
+#page-header .d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
+/* Title */
+
+#page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+
+/* Buttons container */
+
+.header-actions-container {
+    display: flex;
+    gap: 0.75rem;
+}
+
+
+/* ==================================
+   BUTTONS – UNIVERSITY STYLE
+   ================================== */
+
+.header-actions-container .btn {
+    border-radius: 999px;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+
+/* Primary */
+
+.header-actions-container .btn-primary {
+    background: #c8102e;
+    border-color: #c8102e;
+    color: white;
+}
+
+
+/* Outline */
+
+.header-actions-container .btn-outline-primary {
+    border: 1.5px solid #ffffff;
+    color: #ffffff;
+    background: transparent;
+}
+
+.header-actions-container .btn-outline-primary:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+
+
+/* ==================================
+   MOBILE
+   ================================== */
+
+@media (max-width: 576px) {
+
+    #page-header.header-maxwidth {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    #page-header .d-flex {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    #page-header h1 {
+        font-size: 1.25rem;
+        color: white;
+    }
+
+    .header-actions-container {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+    }
+
+    .header-actions-container .btn {
+        font-size: 0.78rem;
+        padding: 0.4rem 0.9rem;
+        min-width: 95px;
+    }
+
+}

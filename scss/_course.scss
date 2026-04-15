@@ -1,0 +1,113 @@
+$primary: #ff4d4d;
+
+body {
+  background: #f6f8fb;
+  font-family: "Inter", sans-serif;
+}
+
+/* COURSE GRID */
+.card-grid {
+  gap: 1rem;
+}
+
+/* reduce column spacing */
+.card-grid .col {
+  padding: 0 8px;
+}
+
+/* CARD */
+.course-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #eaeaea;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  transition: border 0.2s ease;
+}
+
+/* HOVER (ONLY BORDER) */
+.course-card:hover {
+  border-color: $primary;
+}
+
+/* COURSE IMAGE */
+.course-card .card-img-top {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* CARD BODY */
+.course-card .card-body {
+  padding: 1rem 1.1rem 0.9rem;
+}
+
+/* COURSE TITLE */
+.course-card .coursename {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  display: block;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+/* COURSE CATEGORY */
+.course-card .text-muted {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b !important;
+}
+
+/* CATEGORY BADGE */
+.course-card .text-muted div {
+  display: inline-block;
+  background: #f1f5f9;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* PROGRESS BAR */
+.course-card .progress {
+  margin: 6px 0 0 10px;
+  height: 5px;
+  border-radius: 6px;
+}
+
+/* THREE DOT MENU */
+.course-card .dropdown {
+  margin-left: auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .card-grid {
+    gap: 0.8rem;
+  }
+
+  .course-card .card-img-top {
+    height: 160px;
+  }
+
+}
+
+/* AUTO RESPONSIVE COURSE GRID - CENTERED */
+.block_myoverview .card-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Disable Bootstrap column behaviour */
+.block_myoverview .card-grid .col {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: none !important;
+  padding: 0 !important;
+}

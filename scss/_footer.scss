@@ -1,0 +1,113 @@
+/* ===== FOOTER ===== */
+
+html, body {
+    height: 100%;
+}
+
+#page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#page {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#region-main {
+    flex: 1 0 auto;
+}
+
+#page-footer,
+.guni-footer {
+    margin-top: auto;
+}
+
+
+.guni-footer {
+    margin-top: auto;
+    padding: 1.4rem 2rem; /* reduced height */
+    background: linear-gradient(135deg, #0d2c54, #1e4fa3);
+    color: rgba(255,255,255,0.95);
+
+    font-size: 0.95rem; /* slightly smaller base text */
+    line-height: 1.4;
+    text-align: center; /* ensures global centering */
+}
+
+/* Grid layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem; /* reduced spacing */
+    margin-bottom: 1.8rem;
+    justify-items: center;
+    text-align: center;
+}
+
+/* Column headings */
+.footer-col h6,
+.footer-col h5 {
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* Links */
+.footer-col a {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    transition: 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* Tagline */
+.footer-tagline {
+    opacity: 0.85;
+    font-size: 0.95rem;
+}
+
+/* Bottom row */
+.footer-bottom {
+    display: flex;
+    justify-content: center;  /* centered instead of space-between */
+    align-items: center;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* Debug / Moodle system info */
+.footer-debug {
+    margin-top: 1.5rem;
+    padding: 0.8rem 0;
+    background: rgba(0,0,0,0.2);
+    font-size: 0.85rem;
+    text-align: center; /* fixes left alignment issue */
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+

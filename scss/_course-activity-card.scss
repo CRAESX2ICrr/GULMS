@@ -1,0 +1,65 @@
+/* ===== GRID ===== */
+.activity-grid-container,
+.activity.subsection .activity-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+/* ===== WRAPPER ===== */
+.activity-card-wrapper {
+    display: block;
+}
+
+/* ===== CARD ===== */
+.activity-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;   /* 🔥 FIX */
+    gap: 8px;                      /* 🔥 FIX */
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: all 0.2s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* ===== HEADER ALIGNMENT ===== */
+.activity-card .activityinstance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===== TEXT SPACING ===== */
+.activity-card .contentafterlink,
+.activity-card .activity-description {
+    margin-top: 6px;
+}
+
+/* ===== SUBSECTION ===== */
+.activity-card-wrapper.subsection {
+    grid-column: 1 / -1;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.activity-card.subsection {
+    background: #f8fafc !important;
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+.activity-card.subsection:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
