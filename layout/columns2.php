@@ -56,6 +56,11 @@ $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settin
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
+require_once($CFG->dirroot . '/local/otp/config.php');
+$PAGE->requires->js_init_code(
+    "window.firebaseConfig = " . json_encode($firebase_config) . ";"
+);
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
@@ -75,3 +80,5 @@ $templatecontext = [
 ];
 
 echo $OUTPUT->render_from_template('theme_boost/columns2', $templatecontext);
+
+

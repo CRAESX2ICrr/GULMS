@@ -1,13 +1,8 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyD7dsYZ-Exl-dUhjwT1xcqAvIVTG8kngJc",
-  authDomain: "gulms-3a632.firebaseapp.com",
-  projectId: "gulms-3a632",
-  storageBucket: "gulms-3a632.firebasestorage.app",
-  messagingSenderId: "466850440462",
-  appId: "1:466850440462:web:a49a0147f32b52f5de235f"
-};
+const firebaseConfig = window.firebaseConfig;
 
-if (!firebase.apps.length) {
+if (!firebaseConfig) {
+    console.error("Firebase config not found");
+} else if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
 
@@ -15,8 +10,6 @@ let confirmationResult;
 window.recaptchaVerifier = null;
 
 
-
-// ✅ OPEN MODAL
 window.openOtpModal = function () {
 
     document.getElementById("otpModal").style.display = "block";
@@ -66,7 +59,7 @@ window.sendOtpFirebase = function () {
     let mobile =
         "+91" + document.getElementById("mobile").value;
 
-    // ✅ create captcha if not ready
+    //  create captcha if not ready
     if (!window.recaptchaVerifier) {
 
         const container =
