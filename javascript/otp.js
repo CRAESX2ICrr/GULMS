@@ -1,16 +1,31 @@
-const firebaseConfig = window.firebaseConfig;
-
-if (!firebaseConfig) {
-    console.error("Firebase config not found");
-} else if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
-
 let confirmationResult;
 window.recaptchaVerifier = null;
 
+let firebaseReady = false;
+
+// Load config from backend
+fetch(M.cfg.wwwroot + "/local/otp/firebase_config.php")
+    .then(res => res.json())
+    .then(firebaseConfig => {
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+
+        firebaseReady = true;
+        console.log("Firebase initialized");
+
+    })
+    .catch(err => {
+        console.error("Failed to load Firebase config", err);
+    });
 
 window.openOtpModal = function () {
+
+if (!firebaseReady) {
+    alert("Please wait, initializing...");
+    return;
+}
 
     document.getElementById("otpModal").style.display = "block";
 
@@ -55,6 +70,12 @@ window.openOtpModal = function () {
 
 
 window.sendOtpFirebase = function () {
+
+
+    if (!firebaseReady) {
+        alert("Please wait, initializing...");
+        return;
+    }
 
     let mobile =
         "+91" + document.getElementById("mobile").value;
@@ -103,38 +124,47 @@ window.sendOtpFirebase = function () {
 
 window.verifyOtpFirebase = function () {
 
-    let code =
-        document.getElementById("otp").value;
+if (!firebaseReady) {
+    alert("Please wait, initializing...");
+    return;
+}
 
-    let mobile =
-        document.getElementById("mobile").value;
+    let code = document.getElementById("otp").value;
+
+    // Always use same format as OTP send
+    let mobile = "+91" + document.getElementById("mobile").value;
+
+    if (!confirmationResult) {
+        alert("Please request OTP first");
+        return;
+    }
 
     confirmationResult.confirm(code)
         .then(function () {
 
             fetch(
-                M.cfg.wwwroot +
-                "/local/otp/login.php",
+                M.cfg.wwwroot + "/local/otp/login.php",
                 {
                     method: "POST",
                     headers: {
-                        "Content-Type":
-                        "application/x-www-form-urlencoded"
+                        "Content-Type": "application/x-www-form-urlencoded"
                     },
-                    body:
-                        "phone=" + mobile
+                    //  encode properly
+                    body: "phone=" + encodeURIComponent(mobile)
                 }
             )
             .then(r => r.text())
             .then(res => {
 
                 console.log("PHP RESPONSE:", res);
-                alert("SERVER: " + res);
 
                 if (res.trim() === "OK") {
 
-                    window.location =
-                        M.cfg.wwwroot + "/my";
+                    window.location = M.cfg.wwwroot + "/my";
+
+                } else {
+
+                    alert("Login failed: " + res);
 
                 }
 
