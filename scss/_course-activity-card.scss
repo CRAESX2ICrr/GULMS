@@ -1,30 +1,38 @@
-/* ===== GRID ===== */
+/* =====================================================
+   FINAL CSS FOR CLEAN activity.mustache
+   Row 1 → Title + controls
+   Row 2 → Completion
+===================================================== */
+
+/* ===== GRID CONTAINER ===== */
 .activity-grid-container,
 .activity.subsection .activity-grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 18px;
+    align-items: stretch;
 }
 
 /* ===== WRAPPER ===== */
 .activity-card-wrapper {
     display: block;
+    height: 100%;
 }
 
 /* ===== CARD ===== */
 .activity-card {
     width: 100%;
+    min-height: 240px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;   /* 🔥 FIX */
-    gap: 8px;                      /* 🔥 FIX */
-    background: #ffffff;
+    background: #fff;
+    border: 1px solid #e5e7eb;
     border-radius: 14px;
     padding: 16px;
-    border: 1px solid #e5e7eb;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     transition: all 0.2s ease;
+    overflow: hidden;
 }
 
 .activity-card:hover {
@@ -32,34 +40,243 @@
     box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
-/* ===== HEADER ALIGNMENT ===== */
-.activity-card .activityinstance {
+/* ===== INNER WRAPPER ===== */
+.activity-card .activity-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 100%;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.activity-card .activity-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* =====================================================
+   ROW 1 → TITLE + RIGHT ICONS
+===================================================== */
+
+.activity-card .activity-bottom-row {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.activity-card .activity-title {
+    flex: 1;
+    min-width: 0;
+}
+
+/* title */
+.activity-card .activityname,
+.activity-card .instancename {
+    font-weight: 600;
+    line-height: 1.45;
+    word-break: break-word;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* keep pencil inline */
+.activity-card .activityname a,
+.activity-card .instancename a {
+    display: inline !important;
+}
+
+.activity-card .editing_actions,
+.activity-card .quickeditlink,
+.activity-card .editinplace {
+    display: inline-flex !important;
     align-items: center;
+    vertical-align: middle;
+    margin-left: 6px;
 }
 
-/* ===== TEXT SPACING ===== */
-.activity-card .contentafterlink,
-.activity-card .activity-description {
+/* right icons */
+.activity-card .activity-right-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* =====================================================
+   ROW 2 → COMPLETION
+===================================================== */
+
+.activity-card .activity-completion {
     margin-top: 6px;
+    display: flex;
+    justify-content: flex-start;
+    width: auto !important;
 }
 
-/* ===== SUBSECTION ===== */
+/* reset Moodle weirdness */
+.activity-card .activity-actions,
+.activity-card .activity-groupmode-info,
+.activity-card .activity-badges {
+    position: static !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.activity-card .activity-description,
+.activity-card .activity-altcontent {
+    margin-top: 4px;
+    line-height: 1.5;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+/* =====================================================
+   DATES
+===================================================== */
+
+.activity-card .activity-dates {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   AFTERLINK
+===================================================== */
+
+.activity-card .activity-afterlink {
+    display: block !important;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: auto;
+}
+
+/* ===== BUTTONS ===== */
+
+.activity-card .btn,
+.activity-card .dropdown,
+.activity-card .dropdown-toggle {
+    width: auto !important;
+    max-width: max-content;
+    white-space: nowrap;
+}
+
+.activity-card .badge {
+    white-space: normal;
+}
+
+/* =====================================================
+   SUBSECTION
+===================================================== */
+
 .activity-card-wrapper.subsection {
     grid-column: 1 / -1;
-    display: block;
     width: 100%;
     margin-top: 10px;
 }
 
 .activity-card.subsection {
     background: #f8fafc !important;
-    box-shadow: none !important;
     border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
 }
 
 .activity-card.subsection:hover {
     transform: none !important;
     box-shadow: none !important;
+}
+
+/* =========================================
+   FORCE EDIT PENCIL NEXT TO TITLE
+========================================= */
+
+/* keep title link inline */
+.activity-card .activityname,
+.activity-card .instancename,
+.activity-card .activityname a,
+.activity-card .instancename a {
+    display: inline !important;
+    vertical-align: middle;
+}
+
+/* keep edit pencil inline */
+.activity-card .editing_actions,
+.activity-card .quickeditlink,
+.activity-card .editinplace,
+.activity-card .editing_actions a,
+.activity-card .quickeditlink a {
+    display: inline-flex !important;
+    align-items: center;
+    vertical-align: middle;
+    margin-left: 6px;
+    position: static !important;
+}
+
+/* prevent pencil from dropping below */
+.activity-card .activity-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* keep icon alignment clean */
+.activity-card .editing_actions .icon,
+.activity-card .quickeditlink .icon {
+    vertical-align: middle;
+}
+
+/* =========================================
+   FIX EMPTY SUBSECTION HEIGHT
+========================================= */
+
+.activity-card-wrapper.subsection,
+.activity-card.subsection {
+    min-height: auto !important;
+    height: auto !important;
+}
+
+/* remove forced height from inner wrapper */
+.activity-card.subsection .activity-grid {
+    min-height: auto !important;
+    height: auto !important;
+    gap: 8px;
+}
+
+/* compact subsection header */
+.activity-card.subsection {
+    padding: 12px 16px !important;
+}
+
+/* keep "New subsection" row small */
+.activity-card.subsection .activity-header {
+    gap: 4px;
+}
+
+/* =========================================
+   FIX SUBSECTION PENCIL SPACING
+========================================= */
+
+.activity-card.subsection .activityname,
+.activity-card.subsection .instancename {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* space between text and icons */
+}
+
+/* ensure pencil has breathing room */
+.activity-card.subsection .editing_actions,
+.activity-card.subsection .quickeditlink,
+.activity-card.subsection .editinplace {
+    margin-left: 6px;
 }

@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace theme_boost\output;
+namespace theme_guni\output;
 
 use moodle_url;
 use html_writer;
@@ -59,10 +59,16 @@ class core_renderer extends \core_renderer {
      *
      * @return string the HTML for the navbar.
      */
-    public function navbar(): string {
-        $newnav = new \theme_boost\boostnavbar($this->page);
-        return $this->render_from_template('core/navbar', $newnav);
-    }
+
+
+
+
+
+
+
+
+
+    
 
     /**
      * Renders the context header for the page.

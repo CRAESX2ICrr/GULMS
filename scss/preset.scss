@@ -13,5 +13,13 @@
 @import "course";
 @import "footer";
 @import "myoverview";
-@import "course-activity-card"
+@import "course-activity-card";
 
+
+.moremenu .nav {
+    display: flex;
+}
+
+.pagelayout-admin .nav-tabs a[href*="/local/allcourses/index.php"] {
+    display: none !important;
+}

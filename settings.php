@@ -106,6 +106,4 @@ if ($ADMIN->fulltree) {
         get_string('rawscss_desc', 'theme_guni'), '', PARAM_RAW);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-
-    $settings->add($page);
 }
