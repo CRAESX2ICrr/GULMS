@@ -15,16 +15,15 @@
 
 /* ===== WRAPPER ===== */
 .activity-card-wrapper {
-    display: block;
-    height: 100%;
+    display: flex;
 }
-
 /* ===== CARD ===== */
 .activity-card {
     width: 100%;
-    min-height: 240px;
-    height: 100%;
+    min-height: auto;
+    height: auto;
     display: flex;
+    flex: 1;
     flex-direction: column;
     background: #fff;
     border: 1px solid #e5e7eb;
@@ -32,7 +31,7 @@
     padding: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     transition: all 0.2s ease;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .activity-card:hover {
@@ -40,12 +39,39 @@
     box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
-/* ===== INNER WRAPPER ===== */
+
+.activity-card iframe,
+.activity-card .h5p-iframe,
+.activity-card video {
+    width: 100%;
+    min-height: 200px;
+    height: auto !important;
+    display: block;
+}
+
+/* ===== INNER WRAPPER FIX ===== */
 .activity-card .activity-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    min-height: 100%;
+    display: block !important;
+}
+
+/* ===== CONTENT FIX ===== */
+.activity-card .activity-altcontent,
+.activity-card .activity-content {
+    display: block !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 200px;
+    overflow: visible !important;
+}
+
+/* ===== MEDIA FIX ===== */
+.activity-card iframe,
+.activity-card .h5p-iframe,
+.activity-card video {
+    width: 100%;
+    height: auto !important;
+    min-height: 200px;
+    display: block;
 }
 
 /* =====================================================
@@ -279,4 +305,20 @@
 .activity-card.subsection .quickeditlink,
 .activity-card.subsection .editinplace {
     margin-left: 6px;
+}
+
+
+/* ===== FULLSCREEN FIX ===== */
+.activity-card iframe:fullscreen,
+.activity-card iframe:-webkit-full-screen,
+.activity-card video:fullscreen,
+.activity-card video:-webkit-full-screen {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+/* Ensure iframe scales properly */
+.activity-card iframe {
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
 }
